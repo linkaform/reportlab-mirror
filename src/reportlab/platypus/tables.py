@@ -1496,8 +1496,10 @@ class Table(Flowable):
             if ec < 0: ec = ec + ncols
             if sr < 0: sr = sr + nrows
             if er < 0: er = er + nrows
-            x0 = colpositions[sc]
-            y0 = rowpositions[sr]
+            if sc < len(colpositions):
+                x0 = colpositions[sc]
+            if sr < len(rowpositions):
+                y0 = rowpositions[sr]
             x1 = colpositions[min(ec+1,ncols)]
             y1 = rowpositions[min(er+1,nrows)]
             w, h = x1-x0, y1-y0
